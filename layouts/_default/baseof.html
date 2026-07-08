@@ -23,18 +23,18 @@
   <header class="container">
     <nav>
       <ul>
-        <li><a href="{{ "/" | relURL }}"><strong>{{ .Site.Title }}</strong></a></li>
+        <li><a href="{{ "" | relURL }}"><strong>{{ .Site.Title }}</strong></a></li>
       </ul>
       <button class="nav-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links">
         <span class="nav-toggle-icon-open">{{ partial "icons/menu.html" . }}</span>
         <span class="nav-toggle-icon-close">{{ partial "icons/x.html" . }}</span>
       </button>
       <ul id="nav-links" class="nav-links">
-        <li><a href="#leistungen">Leistungen</a></li>
-        <li><a href="#ablauf">Ablauf</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#ueber-mich">Über mich</a></li>
-        <li><a href="#kontakt" role="button">Kontakt</a></li>
+        <li><a href="{{ "" | relURL }}#leistungen">Leistungen</a></li>
+        <li><a href="{{ "" | relURL }}#ablauf">Ablauf</a></li>
+        <li><a href="{{ "" | relURL }}#portfolio">Portfolio</a></li>
+        <li><a href="{{ "" | relURL }}#ueber-mich">Über mich</a></li>
+        <li><a href="{{ "" | relURL }}#kontakt" role="button">Kontakt</a></li>
         <li>
           <button class="theme-toggle" type="button" aria-label="Zu hellem Modus wechseln">
             <span class="theme-toggle-icon-sun">{{ partial "icons/sun.html" . }}</span>
@@ -53,8 +53,8 @@
     {{ partial "social-links.html" . }}
     <small>
       &copy; {{ now.Year }} {{ .Site.Title }} ·
-      <a href="{{ "/impressum/" | relURL }}">Impressum</a> ·
-      <a href="{{ "/datenschutz/" | relURL }}">Datenschutz</a>
+      <a href="{{ "impressum/" | relURL }}">Impressum</a> ·
+      <a href="{{ "datenschutz/" | relURL }}">Datenschutz</a>
     </small>
   </footer>
 

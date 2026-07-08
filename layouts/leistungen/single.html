@@ -1,6 +1,6 @@
 {{ define "main" }}
 <article class="service-detail">
-  <p><a href="{{ "/#leistungen" | relURL }}">← Zurück zu Leistungen</a></p>
+  <p><a href="{{ "#leistungen" | relURL }}">← Zurück zu Leistungen</a></p>
 
   <div class="service-detail-header">
     <div class="service-icon">{{ partial (printf "icons/%s.html" .Params.icon) . }}</div>
@@ -78,6 +78,6 @@
   </div>
   {{ end }}
 
-  <a href="{{ "/#kontakt" | relURL }}" role="button">Jetzt anfragen</a>
+  <a href="{{ "#kontakt" | relURL }}" role="button">Jetzt anfragen</a>
 </article>
 {{ end }}
