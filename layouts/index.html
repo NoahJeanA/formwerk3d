@@ -1,0 +1,133 @@
+{{ define "main" }}
+<section class="hero">
+  {{ partial "cube-icon.html" . }}
+  <hgroup>
+    <h1>{{ .Site.Title }}</h1>
+    <p>{{ .Site.Params.tagline }}</p>
+  </hgroup>
+  <a href="#kontakt" role="button">Jetzt Anfrage stellen</a>
+</section>
+
+<section id="leistungen">
+  <h2>Leistungen</h2>
+  <div class="service-list">
+    <article class="service">
+      <div class="service-icon">{{ partial "icons/cad-model.html" . }}</div>
+      <div class="service-body">
+        <h3>CAD-Konstruktion</h3>
+        <a class="service-link" href="{{ "/leistungen/cad-konstruktion/" | relURL }}">Mehr erfahren →</a>
+      </div>
+    </article>
+    <article class="service">
+      <div class="service-icon">{{ partial "icons/printer-3d.html" . }}</div>
+      <div class="service-body">
+        <h3>3D-Druck &amp; Prototypen</h3>
+        <a class="service-link" href="{{ "/leistungen/3d-druck-prototypen/" | relURL }}">Mehr erfahren →</a>
+      </div>
+    </article>
+    <article class="service">
+      <div class="service-icon">{{ partial "icons/boxes.html" . }}</div>
+      <div class="service-body">
+        <h3>Kleinserienfertigung</h3>
+        <a class="service-link" href="{{ "/leistungen/kleinserienfertigung/" | relURL }}">Mehr erfahren →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="ablauf">
+  <h2>Ablauf</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-icon">{{ partial "icons/mail.html" . }}</div>
+      <h3>Anfrage stellen</h3>
+      <p>Schickt mir eine Skizze, eine STL-Datei oder beschreibt kurz eure Idee, per Kontaktformular oder E-Mail.</p>
+    </div>
+    <div class="step">
+      <div class="step-icon">{{ partial "icons/file-text.html" . }}</div>
+      <h3>Beratung &amp; Angebot</h3>
+      <p>Ich melde mich mit Rückfragen und einem unverbindlichen Angebot zu Material, Preis und Lieferzeit.</p>
+    </div>
+    <div class="step">
+      <div class="step-icon">{{ partial "icons/settings.html" . }}</div>
+      <h3>Konstruktion &amp; Fertigung</h3>
+      <p>Nach Freigabe konstruiere und drucke ich euer Bauteil mit dem passenden Material.</p>
+    </div>
+    <div class="step">
+      <div class="step-icon">{{ partial "icons/package.html" . }}</div>
+      <h3>Qualitätskontrolle &amp; Versand</h3>
+      <p>Prüfung auf Maßhaltigkeit, danach Versand oder Abholung nach Absprache.</p>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <h2>Portfolio</h2>
+  <div class="slideshow" role="region" aria-label="Portfolio-Bildergalerie">
+    <img class="slide active" src="{{ "images/gallery-1.jpg" | relURL }}" alt="Nahaufnahme eines 3D-Druckers beim Druck eines gelben Objekts" aria-hidden="false">
+    <img class="slide" src="{{ "images/gallery-2.jpg" | relURL }}" alt="Mehrere 3D-Drucker im Einsatz mit fertigen blauen Druckobjekten" loading="lazy" aria-hidden="true">
+    <img class="slide" src="{{ "images/gallery-3.jpg" | relURL }}" alt="3D-Drucker beim Druck eines strukturierten grauen Objekts" loading="lazy" aria-hidden="true">
+    <img class="slide" src="{{ "images/gallery-4.jpg" | relURL }}" alt="3D-Drucker mit mehreren fertig gedruckten Objekten" loading="lazy" aria-hidden="true">
+    <img class="slide" src="{{ "images/gallery-5.jpg" | relURL }}" alt="Fertig gedrucktes geometrisches Designobjekt" loading="lazy" aria-hidden="true">
+    <img class="slide" src="{{ "images/gallery-6.jpg" | relURL }}" alt="Nahaufnahme eines 3D-Druckers mit rotem Druckobjekt" loading="lazy" aria-hidden="true">
+
+    <button class="slide-nav prev" type="button" aria-label="Vorheriges Bild">
+      {{ partial "icons/chevron-left.html" . }}
+    </button>
+    <button class="slide-nav next" type="button" aria-label="Nächstes Bild">
+      {{ partial "icons/chevron-right.html" . }}
+    </button>
+
+    <div class="slide-dots">
+      <button class="dot active" type="button" aria-label="Bild 1" aria-current="true"></button>
+      <button class="dot" type="button" aria-label="Bild 2"></button>
+      <button class="dot" type="button" aria-label="Bild 3"></button>
+      <button class="dot" type="button" aria-label="Bild 4"></button>
+      <button class="dot" type="button" aria-label="Bild 5"></button>
+      <button class="dot" type="button" aria-label="Bild 6"></button>
+    </div>
+  </div>
+</section>
+
+<section id="ueber-mich">
+  <h2>Über mich</h2>
+  <div class="profile-layout">
+    <img class="profile-photo" src="{{ "images/profile.jpg" | relURL }}" alt="Profilbild von {{ .Site.Params.name }}">
+    <div>
+      <p>{{ .Site.Params.intro }}</p>
+      <blockquote>
+        „Schnelle Rückmeldung, klare Kommunikation und exakt das Teil, das wir gebraucht haben."
+        <footer><cite>— Beispiel-Kundenstimme</cite></footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt">
+  <h2>Kontakt</h2>
+  <div class="contact-layout">
+    <div class="contact-intro">
+      <p>Schreibt mir kurz, was ihr braucht: am besten mit Material, Stückzahl und, falls vorhanden, einer Datei oder Skizze. Ich melde mich zeitnah zurück.</p>
+      <a href="mailto:{{ .Site.Params.email }}" role="button">Jetzt E-Mail schreiben</a>
+    </div>
+    <div class="contact-card">
+      <div class="contact-row">
+        {{ partial "icons/mail.html" . }}
+        <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
+      </div>
+      <div class="contact-row">
+        {{ partial "icons/phone.html" . }}
+        <a href="tel:{{ .Site.Params.telHref }}">{{ .Site.Params.phone }}</a>
+      </div>
+      <div class="contact-row">
+        {{ partial "icons/map-pin.html" . }}
+        <span>{{ .Site.Params.address }}</span>
+      </div>
+      <div class="contact-row">
+        {{ partial "icons/clock.html" . }}
+        <span>{{ .Site.Params.hours }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

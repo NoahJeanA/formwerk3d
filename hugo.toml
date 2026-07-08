@@ -1,0 +1,16 @@
+baseURL = 'https://example.org/'
+languageCode = 'de-de'
+title = 'Formwerk3D'
+
+[params]
+  name = 'Max Mustermann'
+  tagline = 'CAD-Konstruktion und 3D-Druck aus einer Hand, von der Skizze bis zum fertigen Bauteil'
+  intro = 'Hauptberuflich bin ich Ingenieur, in meiner Freizeit fertige ich in der eigenen Werkstatt Einzelteile und kleine Serien per 3D-Druck. Ich übernehme das Projekt selbst, vom ersten Entwurf bis zur Lieferung, ohne Zwischenstationen.'
+  email = 'kontakt@formwerk3d-beispiel.de'
+  phone = '+49 30 123456'
+  address = 'Musterstraße 12, 10115 Berlin'
+  hours = 'Nach Vereinbarung (Nebengewerbe) · Antwort meist innerhalb 24h'
+  telHref = '+4930123456'
+  instagram = 'https://instagram.com/formwerk3d-beispiel'
+  youtube = 'https://youtube.com/@formwerk3d-beispiel'
+  linkedin = 'https://linkedin.com/in/formwerk3d-beispiel'

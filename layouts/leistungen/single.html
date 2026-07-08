@@ -1,0 +1,83 @@
+{{ define "main" }}
+<article class="service-detail">
+  <p><a href="{{ "/#leistungen" | relURL }}">← Zurück zu Leistungen</a></p>
+
+  <div class="service-detail-header">
+    <div class="service-icon">{{ partial (printf "icons/%s.html" .Params.icon) . }}</div>
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Params.intro }}</p>
+  </div>
+
+  {{ if .Params.materials }}
+  <h2>{{ .Params.materials_title }}</h2>
+  <div class="slideshow material-slideshow" role="region" aria-label="Materialien">
+    {{ range $i, $m := .Params.materials }}
+    <div class="slide{{ if eq $i 0 }} active{{ end }}" aria-hidden="{{ if eq $i 0 }}false{{ else }}true{{ end }}">
+      <img src="{{ $m.image | relURL }}" alt="Material: {{ $m.name }}"{{ if ne $i 0 }} loading="lazy"{{ end }}>
+      <div class="slide-caption">
+        <h3>{{ $m.name }}</h3>
+        <p>{{ $m.description }}</p>
+      </div>
+    </div>
+    {{ end }}
+
+    <button class="slide-nav prev" type="button" aria-label="Vorheriges Material">
+      {{ partial "icons/chevron-left.html" . }}
+    </button>
+    <button class="slide-nav next" type="button" aria-label="Nächstes Material">
+      {{ partial "icons/chevron-right.html" . }}
+    </button>
+
+    <div class="slide-dots">
+      {{ range $i, $m := .Params.materials }}
+      <button class="dot{{ if eq $i 0 }} active{{ end }}" type="button" aria-label="{{ $m.name }}"{{ if eq $i 0 }} aria-current="true"{{ end }}></button>
+      {{ end }}
+    </div>
+  </div>
+  {{ else if .Params.cards }}
+  <h2>{{ .Params.cards_title }}</h2>
+  {{ if (index .Params.cards 0).icon }}
+  <div class="slideshow icon-slideshow" role="region" aria-label="{{ .Params.cards_title }}">
+    {{ range $i, $c := .Params.cards }}
+    <div class="slide{{ if eq $i 0 }} active{{ end }}" aria-hidden="{{ if eq $i 0 }}false{{ else }}true{{ end }}">
+      <div class="slide-icon">{{ partial (printf "icons/%s.html" $c.icon) $ }}</div>
+      <h3>{{ $c.name }}</h3>
+      <p>{{ $c.description }}</p>
+    </div>
+    {{ end }}
+
+    <button class="slide-nav prev" type="button" aria-label="Vorherige Software">
+      {{ partial "icons/chevron-left.html" . }}
+    </button>
+    <button class="slide-nav next" type="button" aria-label="Nächste Software">
+      {{ partial "icons/chevron-right.html" . }}
+    </button>
+
+    <div class="slide-dots">
+      {{ range $i, $c := .Params.cards }}
+      <button class="dot{{ if eq $i 0 }} active{{ end }}" type="button" aria-label="{{ $c.name }}"{{ if eq $i 0 }} aria-current="true"{{ end }}></button>
+      {{ end }}
+    </div>
+  </div>
+  {{ else }}
+  <div class="detail-cards">
+    {{ range .Params.cards }}
+    <div class="detail-card">
+      <h3>{{ .name }}</h3>
+      <p>{{ .description }}</p>
+    </div>
+    {{ end }}
+  </div>
+  {{ end }}
+  {{ end }}
+
+  {{ with .Params.formats }}
+  <h2>{{ $.Params.formats_title }}</h2>
+  <div class="tag-list">
+    {{ range . }}<span class="tag">{{ . }}</span>{{ end }}
+  </div>
+  {{ end }}
+
+  <a href="{{ "/#kontakt" | relURL }}" role="button">Jetzt anfragen</a>
+</article>
+{{ end }}
